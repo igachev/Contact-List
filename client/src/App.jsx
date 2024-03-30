@@ -1,11 +1,11 @@
 
 import './App.css'
 import {Route, RouterProvider, createBrowserRouter,createRoutesFromElements} from "react-router-dom"
-import ContactList from './routes/ContactList'
+import ContactList, { getContactsLoader } from './routes/ContactList'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<ContactList />}>
+    <Route path='/' element={<ContactList />} loader={getContactsLoader}>
 
     </Route>
 
