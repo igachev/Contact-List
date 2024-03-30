@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { NavLink, useLoaderData } from "react-router-dom"
 import * as contactService from "../services/contactService"
 
 export async function getContactsLoader() {
@@ -15,6 +15,18 @@ export default function ContactList() {
     return (
         <div>
             <h1>Contact List</h1>
+
+            <div>
+                {contacts.map((contact) => (
+
+                        <div key={contact._id}>
+                            <NavLink to={`/contacts/${contact._id}`}>
+                                {contact.firstName} {contact.lastName}
+                            </NavLink>
+                        </div>
+                        
+                    ))}
+            </div>
         </div>
     )
 }
