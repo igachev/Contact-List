@@ -1,3 +1,10 @@
+import * as contactService from "../services/contactService"
+
+export async function getContactLoader({params}) {
+    const contactId = params.contactId;
+    const contact = await contactService.getContact(contactId)
+    return contact
+}
 
 export default function ContactDetails() {
 
