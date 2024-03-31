@@ -13,20 +13,23 @@ export default function ContactList() {
     console.log(contacts)
 
     return (
-        <div>
-            <h1>Contact List</h1>
+        <div className="contact-list-container">
+          
+          <article>
+          <h1>Contact List</h1>
 
-            <div>
-                {contacts.map((contact) => (
+            <div className="contacts">
+            {contacts.map((contact) => (
 
-                        <div key={contact._id}>
-                            <NavLink to={`/contacts/${contact._id}`}>
-                                {contact.firstName} {contact.lastName}
-                            </NavLink>
-                        </div>
-                        
-                    ))}
+            <div key={contact._id}>
+                <NavLink to={`/contacts/${contact._id}`}>
+                    {contact.firstName} {contact.lastName}
+                </NavLink>
             </div>
+            
+        ))}
+            </div>
+          </article>
 
             <Outlet />
         </div>
