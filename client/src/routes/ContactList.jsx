@@ -1,4 +1,4 @@
-import { NavLink, useLoaderData } from "react-router-dom"
+import { NavLink, Outlet, useLoaderData } from "react-router-dom"
 import * as contactService from "../services/contactService"
 
 export async function getContactsLoader() {
@@ -27,6 +27,8 @@ export default function ContactList() {
                         
                     ))}
             </div>
+
+            <Outlet />
         </div>
     )
 }
