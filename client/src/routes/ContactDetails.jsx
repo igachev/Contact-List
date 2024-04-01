@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Form, Link, useLoaderData } from "react-router-dom";
 import * as contactService from "../services/contactService"
 
 export async function getContactLoader({params}) {
@@ -22,6 +22,9 @@ export default function ContactDetails() {
             </div>
             <p>Notes: {contact.notes}</p>
             <button>{contact.isFavourite ? <span>&#9733;</span> : <span>&#9734;</span>}</button>
+            <Form action="edit" method="get">
+            <button>Edit</button>
+            </Form>
         </section>
     )
 }
