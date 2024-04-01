@@ -11,3 +11,8 @@ export async function getContact(contactId) {
     const contact = await request.get(`${baseUrl}/${contactId}`)
     return contact
 }
+
+export async function editContact(contactId,contact) {
+    const editedContact = await request.put(`${baseUrl}/${contactId}`,contact)
+    return editedContact
+}
