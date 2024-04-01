@@ -10,7 +10,7 @@ export async function getContactLoader({params}) {
 export default function ContactDetails() {
 
     let {contact} = useLoaderData()
-    console.log(contact)
+   // console.log(contact)
 
     return (
         <section className="contact-details">

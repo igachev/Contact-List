@@ -22,7 +22,7 @@ export default function ContactList() {
             {contacts.map((contact) => (
 
             <div key={contact._id}>
-                <NavLink to={`/contacts/${contact._id}`}>
+                <NavLink to={`contacts/${contact._id}`}>
                     {contact.firstName} {contact.lastName}
                 </NavLink>
             </div>

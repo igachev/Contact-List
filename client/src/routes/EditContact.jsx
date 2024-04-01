@@ -1,4 +1,17 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, redirect, useLoaderData } from "react-router-dom";
+import * as contactService from "../services/contactService"
+
+export async function editContactAction({request,params}) {
+    try {
+        const formData = await request.formData()
+        const editedFormData = Object.fromEntries(formData.entries())
+        const contactId = params.contactId;
+        await contactService.editContact(contactId,editedFormData)
+      return  redirect(`/contacts/${contactId}`)
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 export default function EditContact() {
 
@@ -6,7 +19,7 @@ export default function EditContact() {
 
     return (
         <section>
-            <Form>
+            <Form method="post">
 
                 <div>
                     <label htmlFor="firstName">firstName:</label>
