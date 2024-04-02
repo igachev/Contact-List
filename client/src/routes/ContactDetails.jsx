@@ -1,4 +1,4 @@
-import { Form, Link, useLoaderData } from "react-router-dom";
+import { Form, Link, redirect, useLoaderData } from "react-router-dom";
 import * as contactService from "../services/contactService"
 import { useState } from "react";
 
@@ -6,6 +6,12 @@ export async function getContactLoader({params}) {
     const contactId = params.contactId;
     const contact = await contactService.getContact(contactId)
     return {contact}
+}
+
+export async function deleteContactAction({params}) {
+    const contactId = params.contactId;
+    const deletedContact = await contactService.deleteContact(contactId)
+    return redirect('/');
 }
 
 export default function ContactDetails() {
@@ -20,6 +26,13 @@ export default function ContactDetails() {
     return false;
 })
 
+function onDeleteContact(e) {
+    const deleteConfirmed = confirm(`Are you sure you want to delete contact ${contact.firstName} ${contact.lastName}?`)
+    if(!deleteConfirmed) {
+        e.preventDefault()
+    }
+}
+
     return (
         <section className="contact-details">
             <h1>Contact Details</h1>
@@ -32,8 +45,13 @@ export default function ContactDetails() {
             {isAuthenticated && (
                 <>
                 <button>{contact.isFavourite ? <span>&#9733;</span> : <span>&#9734;</span>}</button>
+
                 <Form action="edit" method="get">
                 <button>Edit</button>
+                </Form>
+
+                <Form action="delete" method="delete" onSubmit={onDeleteContact}>
+                <button>Delete</button>
                 </Form>
                 </>
             )}
