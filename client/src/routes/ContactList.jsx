@@ -1,5 +1,6 @@
-import { NavLink, useLoaderData } from "react-router-dom"
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom"
 import * as contactService from "../services/contactService"
+import { useEffect, useState } from "react"
 
 export async function getContactsLoader() {
 
@@ -10,23 +11,44 @@ export async function getContactsLoader() {
 export default function ContactList() {
 
     let {contacts} = useLoaderData()
-    console.log(contacts)
+    const [isAuthenticated,setIsAuthenticated] = useState(() => {
+        let accessToken = localStorage?.getItem('accessToken')
+        if(accessToken != null) {
+            return true;
+        }
+        return false;
+    })
+
+    function onLogout() {
+        setIsAuthenticated(false)
+        localStorage.removeItem('accessToken')
+    }
 
     return (
+        <div className="contact-list-container">
+          
         <div>
-            <h1>Contact List</h1>
+           {!isAuthenticated &&  <Link to={`/login`}>Login</Link>}
+           {isAuthenticated && <button onClick={onLogout}>Logout</button>}
+        </div>
 
-            <div>
-                {contacts.map((contact) => (
+          <article>
+          <h1>Contact List</h1>
 
-                        <div key={contact._id}>
-                            <NavLink to={`/contacts/${contact._id}`}>
-                                {contact.firstName} {contact.lastName}
-                            </NavLink>
-                        </div>
-                        
-                    ))}
+            <div className="contacts">
+            {contacts.map((contact) => (
+
+            <div key={contact._id}>
+                <NavLink to={`/contacts/${contact._id}`}>
+                    {contact.firstName} {contact.lastName}
+                </NavLink>
             </div>
+            
+        ))}
+            </div>
+          </article>
+
+            <Outlet />
         </div>
     )
 }
