@@ -38,6 +38,15 @@ img {
     color: chocolate;
 }
 
+.contact-list-container #outlet.loading {
+    opacity: 0.5;
+    transition: opacity 0.5s linear;
+}
+
+.contact-list-container #outlet {
+    align-self: center;
+}
+
 .contact-details {
     background-color: burlywood;
     align-self: center;

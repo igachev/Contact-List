@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom"
+import { Link, NavLink, Outlet, useLoaderData, useNavigation } from "react-router-dom"
 import * as contactService from "../services/contactService"
 import { useEffect, useState } from "react"
 
@@ -18,6 +18,7 @@ export default function ContactList() {
         }
         return false;
     })
+    const navigation = useNavigation()
 
     function onLogout() {
         setIsAuthenticated(false)
@@ -48,7 +49,10 @@ export default function ContactList() {
             </div>
           </article>
 
+            <div id="outlet" className={navigation.state === 'loading' ? 'loading' : ''}>
             <Outlet />
+            </div>
+           
         </div>
     )
 }

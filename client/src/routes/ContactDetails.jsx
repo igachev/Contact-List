@@ -34,7 +34,7 @@ function onDeleteContact(e) {
 }
 
     return (
-        <section className="contact-details">
+        <section className={`contact-details`}>
             <h1>Contact Details</h1>
             <h3>First Name: {contact.firstName}</h3>
             <h3>Last Name: {contact.lastName}</h3>
