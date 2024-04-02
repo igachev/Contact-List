@@ -16,3 +16,8 @@ export async function editContact(contactId,contact) {
     const editedContact = await request.put(`${baseUrl}/${contactId}`,contact)
     return editedContact
 }
+
+export async function deleteContact(contactId) {
+    const deletedContact = await request.del(`${baseUrl}/${contactId}`);
+    return deletedContact
+}
