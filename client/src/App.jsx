@@ -10,11 +10,14 @@ const router = createBrowserRouter(
   createRoutesFromElements(
    
     <>
-   <Route path='login' element={<Login />} action={loginAction} />
+   <Route path='/login' element={<Login />} action={loginAction} />
+   <Route path='/contacts' element={<ContactList />} loader={getContactsLoader} />
+
   <Route path='/' element={<ContactList />} loader={getContactsLoader}>
+
     
-<Route path='contacts/:contactId' element={<ContactDetails />} loader={getContactLoader} />
-<Route path='contacts/:contactId/edit' element={<EditContact />} loader={getContactLoader} action={editContactAction} />
+    <Route path='contacts/:contactId' element={<ContactDetails />} loader={getContactLoader} />
+    <Route path='contacts/:contactId/edit' element={<EditContact />} loader={getContactLoader} action={editContactAction} />
 
 </Route>
 

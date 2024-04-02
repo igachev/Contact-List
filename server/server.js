@@ -1649,7 +1649,9 @@
                 lastName: "Cruz",
                 imageUrl: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 notes: "the best friend",
-                isFavourite: false
+                isFavourite: false,
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                _createdOn: 1707754347329,
             },
 
             "87328378": {
@@ -1658,7 +1660,9 @@
                 lastName: "Winchester",
                 imageUrl: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 notes: "Electrician",
-                isFavourite: true
+                isFavourite: true,
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                _createdOn: 1707754347329,
             },
             "83298329": {
                 _id:"3",
@@ -1666,7 +1670,9 @@
                 lastName: "Suon",
                 imageUrl: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 notes: "Accountant",
-                isFavourite: false
+                isFavourite: false,
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                _createdOn: 1707754347329,
             }
         },
 
