@@ -1,4 +1,4 @@
-import { Form, redirect, useLoaderData } from "react-router-dom";
+import { Form, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import * as contactService from "../services/contactService"
 
 export async function editContactAction({request,params}) {
@@ -16,6 +16,11 @@ export async function editContactAction({request,params}) {
 export default function EditContact() {
 
     let {contact} = useLoaderData()
+    let navigate = useNavigate()
+
+    function onCancel() {
+        navigate(`/contacts/${contact._id}`)
+    }
 
     return (
         <section>
@@ -43,7 +48,7 @@ export default function EditContact() {
 
                 <div>
                     <button type="submit">Edit</button>
-                    <button>Cancel</button>
+                    <button onClick={onCancel}>Cancel</button>
                 </div>
             </Form>
         </section>
