@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, useLoaderData, useNavigation } from "react-router-dom"
+import { Link, NavLink, Outlet, useLoaderData, useNavigate, useNavigation } from "react-router-dom"
 import * as contactService from "../services/contactService"
 import { useEffect, useState } from "react"
 
@@ -19,10 +19,12 @@ export default function ContactList() {
         return false;
     })
     const navigation = useNavigation()
+    const navigate = useNavigate()
 
     function onLogout() {
         setIsAuthenticated(false)
         localStorage.removeItem('accessToken')
+        navigate('/')
     }
 
     return (
