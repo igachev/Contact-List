@@ -1,8 +1,10 @@
 import { Form, redirect } from "react-router-dom";
 import * as authService from "../services/authService";
+import { useState } from "react";
 
 
 export async function loginAction({ request }) {
+
 
     try {
         const formData = await request.formData();
@@ -14,6 +16,7 @@ export async function loginAction({ request }) {
         }
     } catch (err) {
         console.log(err);
+        throw new Error(err)
         // Handle errors if necessary
         return err
     }

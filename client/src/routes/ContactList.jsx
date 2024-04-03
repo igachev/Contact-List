@@ -40,7 +40,8 @@ export default function ContactList() {
             {contacts.map((contact) => (
 
             <div key={contact._id}>
-                <NavLink to={`/contacts/${contact._id}`}>
+                <NavLink to={`/contacts/${contact._id}`} 
+                className={ ({ isActive,isPending }) => isActive ? 'active' : isPending ? 'pending' : '' }>
                     {contact.firstName} {contact.lastName}
                 </NavLink>
             </div>

@@ -37,10 +37,21 @@ img {
     color: black;
     text-decoration: none;
     transition: color 0.3s linear;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s linear;
 }
 
 .contact-list-container .contacts a:hover {
     color: chocolate;
+}
+
+.contact-list-container .contacts a.active {
+    background-color:aquamarine;
+}
+
+.contact-list-container .contacts a.pending {
+    background-color: lightblue;
 }
 
 .contact-list-container #outlet.loading {
