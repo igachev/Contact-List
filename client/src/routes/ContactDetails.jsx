@@ -1,6 +1,6 @@
 import { Form, Link, redirect, useLoaderData } from "react-router-dom";
 import * as contactService from "../services/contactService"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export async function getContactLoader({params}) {
     const contactId = params.contactId;
@@ -26,11 +26,22 @@ export default function ContactDetails() {
     return false;
 })
 
+    const [isFav,setIsFav] = useState(contact.isFavourite)
+
 function onDeleteContact(e) {
     const deleteConfirmed = confirm(`Are you sure you want to delete contact ${contact.firstName} ${contact.lastName}?`)
     if(!deleteConfirmed) {
         e.preventDefault()
     }
+}
+
+async function onEditFavourite() {
+    setIsFav((fav) => !fav)
+    contact = {...contact,isFavourite: isFav};
+    
+    await contactService.editContact(contact._id,contact)
+    
+    return contact
 }
 
     return (
@@ -44,8 +55,9 @@ function onDeleteContact(e) {
             <p>Notes: {contact.notes}</p>
             {isAuthenticated && (
                 <>
-                <button>{contact.isFavourite ? <span>&#9733;</span> : <span>&#9734;</span>}</button>
-
+                
+                <button onClick={onEditFavourite}>{isFav === true ? <span>&#9733;</span> : <span>&#9734;</span>}</button>
+            
                 <Form action="edit" method="get">
                 <button>Edit</button>
                 </Form>
