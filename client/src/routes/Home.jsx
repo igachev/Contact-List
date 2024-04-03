@@ -15,7 +15,7 @@ export default function Home() {
                 <br /> 
                 <strong>mark as favourite</strong> 
                 <br /> 
-                your contacts</p>
+                </p>
         </section>
     )
 
