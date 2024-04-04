@@ -12,6 +12,11 @@ export async function getContact(contactId) {
     return contact
 }
 
+export async function createContact(contact) {
+    const newContact = await request.post(`${baseUrl}`,contact)
+    return newContact
+}
+
 export async function editContact(contactId,contact) {
     const editedContact = await request.put(`${baseUrl}/${contactId}`,contact)
     return editedContact
