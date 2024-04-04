@@ -38,6 +38,10 @@ export default function ContactList() {
           <article>
           <h1>Contact List</h1>
 
+          <div>
+            {isAuthenticated && <Link to={`/contacts/create`}>Create Contact</Link>}
+          </div>
+
             <div className="contacts">
             {contacts.map((contact) => (
 

@@ -7,6 +7,7 @@ import EditContact, { editContactAction } from './routes/EditContact'
 import Login, { loginAction } from './routes/Login'
 import Home from './routes/Home'
 import Error from './routes/Error'
+import CreateContact from './routes/CreateContact'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,7 +19,8 @@ const router = createBrowserRouter(
   <Route path='/' element={<ContactList />} loader={getContactsLoader} errorElement={<Error />}>
 
     <Route errorElement={<Error />}>
-    <Route index element={<Home />} />    
+    <Route index element={<Home />} />
+    <Route path='contacts/create' element={<CreateContact />} />    
     <Route path='contacts/:contactId' element={<ContactDetails />} loader={getContactLoader} />
     <Route path='contacts/:contactId/edit' element={<EditContact />} loader={getContactLoader} action={editContactAction} />
     <Route path='contacts/:contactId/delete' action={deleteContactAction} />
