@@ -1,4 +1,16 @@
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
+import * as contactService from "../services/contactService"
+
+export async function createContactAction({request}) {
+    try {
+        const formData = await request.formData()
+        const createFormData = Object.fromEntries(formData.entries())
+        const newContact = await contactService.createContact(createFormData)
+        return redirect('/contacts')
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 export default function CreateContact() {
 
