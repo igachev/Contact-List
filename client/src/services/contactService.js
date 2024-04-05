@@ -26,3 +26,9 @@ export async function deleteContact(contactId) {
     const deletedContact = await request.del(`${baseUrl}/${contactId}`);
     return deletedContact
 }
+
+export async function searchContacts(firstName,lastName) {
+    const searchResult = await request.get(`${baseUrl}?where=firstName LIKE "${firstName}" OR lastName LIKE "${lastName}"`)
+    console.log(searchResult)
+    return searchResult
+}
