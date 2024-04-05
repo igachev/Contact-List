@@ -1,11 +1,17 @@
-import { Link, NavLink, Outlet, useLoaderData, useNavigate, useNavigation } from "react-router-dom"
+import { Form, Link, NavLink, Outlet, useLoaderData, useNavigate, useNavigation, useSubmit } from "react-router-dom"
 import * as contactService from "../services/contactService"
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import Search from "./Search"
 
-export async function getContactsLoader() {
+export async function getContactsLoader({request}) {
 
     let contacts = await contactService.getContacts()
-    return {contacts}
+    const url = new URL(request.url)
+    const search = url.searchParams.get('search')
+    if(search) {
+     contacts = await contactService.searchContacts(search,search)
+    }
+    return {contacts,search}
 }
 
 export default function ContactList() {
@@ -27,6 +33,7 @@ export default function ContactList() {
         navigate('/')
     }
 
+
     return (
         <div className="contact-list-container">
           
@@ -38,12 +45,15 @@ export default function ContactList() {
           <article>
           <h1>Contact List</h1>
 
+          <Search />
+
           <div>
             {isAuthenticated && <Link to={`/contacts/create`}>Create Contact</Link>}
           </div>
 
             <div className="contacts">
-            {contacts.map((contact) => (
+            {contacts.length > 0
+           ? contacts.map((contact) => (
 
             <div key={contact._id}>
                 <NavLink to={`/contacts/${contact._id}`} 
@@ -52,7 +62,9 @@ export default function ContactList() {
                 </NavLink>
             </div>
             
-        ))}
+        ))
+           : <p>No Results</p>
+    }
             </div>
           </article>
 

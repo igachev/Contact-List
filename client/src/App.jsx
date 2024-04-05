@@ -20,7 +20,7 @@ const router = createBrowserRouter(
 
     <Route errorElement={<Error />}>
     <Route index element={<Home />} />
-    <Route path='contacts/create' element={<CreateContact />} action={createContactAction} />    
+    <Route path='contacts/create' element={<CreateContact />} action={createContactAction} />  
     <Route path='contacts/:contactId' element={<ContactDetails />} loader={getContactLoader} />
     <Route path='contacts/:contactId/edit' element={<EditContact />} loader={getContactLoader} action={editContactAction} />
     <Route path='contacts/:contactId/delete' action={deleteContactAction} />
