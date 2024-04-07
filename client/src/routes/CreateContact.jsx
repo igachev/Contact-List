@@ -15,7 +15,7 @@ export async function createContactAction({request}) {
 export default function CreateContact() {
 
     return (
-        <div>
+        <div className="create-contact">
             <h2>Create Contact</h2>
             <Form method="post">
 
@@ -39,7 +39,7 @@ export default function CreateContact() {
                 <textarea name="notes" cols="30" rows="10"></textarea>
             </div>
 
-            <div>
+            <div className="btn-container">
                 <input type="submit" value="Create" />
             </div>
 

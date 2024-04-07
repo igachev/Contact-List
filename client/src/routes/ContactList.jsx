@@ -38,8 +38,10 @@ export default function ContactList() {
         <div className="contact-list-container">
           
         <div>
+           <div className="login">
            {!isAuthenticated &&  <Link to={`/login`}>Login</Link>}
-           {isAuthenticated && <button onClick={onLogout}>Logout</button>}
+           </div>
+           {isAuthenticated && <button onClick={onLogout} className="logout">Logout</button>}
         </div>
 
           <article>
@@ -47,8 +49,8 @@ export default function ContactList() {
 
           <Search />
 
-          <div>
-            {isAuthenticated && <Link to={`/contacts/create`}>Create Contact</Link>}
+          <div className="create-btn-container">
+            {isAuthenticated && <Link to={`/contacts/create`} className="create-btn">Create Contact</Link>}
           </div>
 
             <div className="contacts">

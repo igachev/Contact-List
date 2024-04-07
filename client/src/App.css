@@ -29,6 +29,31 @@ img {
     gap: 1rem;
 }
 
+.contact-list-container .login {
+    margin: 0.5rem;
+    border: 1px solid green;
+    padding: 0.8rem 0.4rem;
+    border-radius: 0.7rem;
+}
+
+.contact-list-container .login a {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-list-container .logout {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    border: solid;
+    margin: 0.5rem;
+    cursor: pointer;
+
+}
+
 .contact-list-container .contacts div {
     margin: 1rem 1.5rem;
 }
@@ -54,6 +79,24 @@ img {
     background-color: lightblue;
 }
 
+.contact-list-container .create-btn-container {
+    text-align: center;
+}
+
+.contact-list-container .create-btn {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    transition: all 0.3s linear;
+    padding: 0.2rem;
+    border-radius: 0.6rem;
+}
+
+.contact-list-container .create-btn:hover {
+    color: yellow;
+    background-color: black;
+}
+
 .contact-list-container #outlet.loading {
     opacity: 0.5;
     transition: opacity 0.5s linear;
@@ -77,4 +120,60 @@ img {
 
 .contact-details .img-container {
     width: 200px;
+}
+
+.contact-details button {
+    cursor: pointer;
+    padding: 0.6rem 0.3rem;
+    border: none;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.contact-details button:hover {
+    background-color: black;
+    color: #fff;
+}
+
+.search-container {
+    margin: 1rem 0.5rem;
+}
+
+.search-container input {
+    border-radius: 0.5rem;
+    outline: none;
+    border-style: solid;
+    padding: 0.5rem 0.8rem;
+    border-color: black;
+}
+
+.create-contact,
+.edit-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-contact div,
+.edit-contact div {
+    margin-bottom: 0.5rem;
+}
+
+.create-contact div label,
+.edit-contact div label {
+    margin-right: 0.3rem;
+}
+
+.create-contact .btn-container,
+.edit-contact .btn-container {
+    text-align: center;
+}
+
+.create-contact .btn-container input,
+.edit-contact .btn-container button {
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem;
 }

@@ -23,7 +23,7 @@ export default function EditContact() {
     }
 
     return (
-        <section>
+        <section className="edit-contact">
             <Form method="post">
 
                 <div>
@@ -46,7 +46,7 @@ export default function EditContact() {
                     <textarea name="notes" id="notes" cols="30" rows="10" defaultValue={contact.notes}></textarea>
                 </div>
 
-                <div>
+                <div className="btn-container">
                     <button type="submit">Edit</button>
                     <button onClick={onCancel}>Cancel</button>
                 </div>
