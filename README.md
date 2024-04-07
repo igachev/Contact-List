@@ -59,6 +59,15 @@ To run React app:
 3. Start the app: `npm run dev`
 
 
+## Routes:
+
+- `/` : homepage which redirects to `/contacts`
+- `/login` : displays login page
+- `/contacts/create` : displays create contact page
+- `/contacts/:contactId` : displays the contact details for the selected contact
+- `/contacts/:contactId/edit` : displays edit page for the selected contact
+- `/contacts/:contactId/delete` : removes the selected contact
+
 
 ## Images:
 
